@@ -1,0 +1,22 @@
+{
+    "members": [
+        "adam",
+        "bob",
+        "charlie"
+    ],
+    "adam": {
+        "name": "Adam Ananth",
+        "employee_id": "111xxxxx",
+        "email": "adam.a@here.com"
+    },
+    "bob": {
+        "name": "Bob Biggins",
+        "employee_id": "222yyyyy",
+        "email": "bob.b@here.com"
+    },
+    "charlie": {
+        "name": "Charles Collins",
+        "employee_id": "333zzzzz",
+        "email": "charles.c@here.com"
+    }
+}

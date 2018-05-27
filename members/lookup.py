@@ -1,24 +1,32 @@
 """Accesses member information."""
 
 import json
+from difflib import get_close_matches
 
 
-def _getMembers():
+def _get_member_list():
     try:
-        dataFile = open("data.json", "r")
-        data = json.load(dataFile)
-        return data
+        members = dict()
+        with open("members.json", "r") as members_file:
+            members = json.load(members_file)
+        return members
     except IOError:
         return False
 
 
-index = _getMembers()
-if isinstance(index, dict):
-    key = input("Enter key: ")
-    val = index.get(key)
-    if val is not None:
-        print(val)
-    else:
-        print("There is no entry for '" + key + "'")
-else:
+member_list = _get_member_list()
+if not member_list:
     print("ABORT. Cannot load data file.")
+else:
+    name = input("Enter name: ")
+    member = member_list.get(name.lower())
+    if member:
+        for field, info in member.items():
+            print("{0:<11} : {1:<}".format(field, info))
+    else:
+        print("There is no entry for '" + name + "'.")
+        possibles = get_close_matches(name, member_list.keys(), n=5, cutoff=0.75)
+        if possibles:
+            print("Did you mean:")
+            for p in possibles:
+                print("  {}?".format(p))

@@ -1,3 +1,9 @@
+######################################################################
+# PYTHON-SPECIFIC
+######################################################################
+# Reference:
+#   https://github.com/github/gitignore/blob/master/Python.gitignore
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -99,3 +105,13 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+######################################################################
+# ENV-SPECIFIC
+######################################################################
+
+# OS
+.DS_Store
+
+# IDE
+.vscode

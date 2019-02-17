@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script>L_PREFER_CANVAS=false; L_NO_TOUCH=false; L_DISABLE_3D=false;</script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.3.4/dist/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.3.4/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+    <meta name="viewport" content="width=device-width,
+        initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>#map_a3eb0d325dab4f8a851b7fbba0f1346e {
+        position: relative;
+        width: 100.0%;
+        height: 100.0%;
+        left: 0.0%;
+        top: 0.0%;
+        }
+    </style>
+</head>
+<body>    
+    
+    <div class="folium-map" id="map_a3eb0d325dab4f8a851b7fbba0f1346e" ></div>
+</body>
+<script>    
+    
+    
+        var bounds = null;
+    
+
+    var map_a3eb0d325dab4f8a851b7fbba0f1346e = L.map(
+        'map_a3eb0d325dab4f8a851b7fbba0f1346e', {
+        center: [35.652832, 139.839478],
+        zoom: 10,
+        maxBounds: bounds,
+        layers: [],
+        worldCopyJump: false,
+        crs: L.CRS.EPSG3857,
+        zoomControl: true,
+        });
+
+    
+    
+    var tile_layer_f7626adf29c94542845dfe2810bc0ae4 = L.tileLayer(
+        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        {
+        "attribution": null,
+        "detectRetina": false,
+        "maxNativeZoom": 18,
+        "maxZoom": 18,
+        "minZoom": 5,
+        "noWrap": false,
+        "opacity": 1,
+        "subdomains": "abc",
+        "tms": false
+}).addTo(map_a3eb0d325dab4f8a851b7fbba0f1346e);
+    
+            var feature_group_f70771927c76478ab89ae4ae31321153 = L.featureGroup(
+                ).addTo(map_a3eb0d325dab4f8a851b7fbba0f1346e);
+        
+    
+        var marker_29e37eab2d8643faba95cd80c2d2914c = L.marker(
+            [35.658615000000005, 139.74543799999998],
+            {
+                icon: new L.Icon.Default()
+                }
+            ).addTo(feature_group_f70771927c76478ab89ae4ae31321153);
+        
+    
+
+                var icon_6dd2da631ee04b8f85fa5fc20e5bb9c2 = L.AwesomeMarkers.icon({
+                    icon: 'star',
+                    iconColor: 'white',
+                    markerColor: 'darkred',
+                    prefix: 'fa',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_29e37eab2d8643faba95cd80c2d2914c.setIcon(icon_6dd2da631ee04b8f85fa5fc20e5bb9c2);
+            
+    
+            var popup_df10b3dfd2ba44f78bd35b41b2943d9f = L.popup({maxWidth: '350'
+            
+            });
+
+            
+                var html_4616fa25e7b04fd29a5cf1398300f6fd = $(`<div id="html_4616fa25e7b04fd29a5cf1398300f6fd" style="width: 100.0%; height: 100.0%;">             <h4>Tokyo Tower</h4><br/>             <b>Address</b><br/>〒105-0011 東京都港区芝公園４丁目２−8<br/>             <a href="https://www.google.com/maps?ll=35.658615000000005,139.74543799999998">Google Maps</a>         </div>`)[0];
+                popup_df10b3dfd2ba44f78bd35b41b2943d9f.setContent(html_4616fa25e7b04fd29a5cf1398300f6fd);
+            
+
+            marker_29e37eab2d8643faba95cd80c2d2914c.bindPopup(popup_df10b3dfd2ba44f78bd35b41b2943d9f)
+            ;
+
+            
+        
+    
+        marker_29e37eab2d8643faba95cd80c2d2914c.bindTooltip(
+            `<div>`
+            + `Tokyo Tower` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_07e3a284321b49dab6171de455b79ce7 = L.marker(
+            [35.710066999999995, 139.8085117],
+            {
+                icon: new L.Icon.Default()
+                }
+            ).addTo(feature_group_f70771927c76478ab89ae4ae31321153);
+        
+    
+
+                var icon_7006f0d73d2740cf895c9c1f5920093d = L.AwesomeMarkers.icon({
+                    icon: 'star',
+                    iconColor: 'white',
+                    markerColor: 'darkred',
+                    prefix: 'fa',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_07e3a284321b49dab6171de455b79ce7.setIcon(icon_7006f0d73d2740cf895c9c1f5920093d);
+            
+    
+            var popup_e30452c32d234f05bb60d3a98affcead = L.popup({maxWidth: '350'
+            
+            });
+
+            
+                var html_c6f5e9b2bc09422ca6f55e0f97e5a304 = $(`<div id="html_c6f5e9b2bc09422ca6f55e0f97e5a304" style="width: 100.0%; height: 100.0%;">             <h4>Tokyo Skytree</h4><br/>             <b>Address</b><br/>〒131-0045 東京都墨田区押上１丁目１−2<br/>             <a href="https://www.google.com/maps?ll=35.710066999999995,139.8085117">Google Maps</a>         </div>`)[0];
+                popup_e30452c32d234f05bb60d3a98affcead.setContent(html_c6f5e9b2bc09422ca6f55e0f97e5a304);
+            
+
+            marker_07e3a284321b49dab6171de455b79ce7.bindPopup(popup_e30452c32d234f05bb60d3a98affcead)
+            ;
+
+            
+        
+    
+        marker_07e3a284321b49dab6171de455b79ce7.bindTooltip(
+            `<div>`
+            + `Tokyo Skytree` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_e807fc3cabf547e287f2813506d8eab9 = L.marker(
+            [35.4551339, 139.6286753],
+            {
+                icon: new L.Icon.Default()
+                }
+            ).addTo(feature_group_f70771927c76478ab89ae4ae31321153);
+        
+    
+
+                var icon_6dba05b914684cd896ba34363c440c01 = L.AwesomeMarkers.icon({
+                    icon: 'star',
+                    iconColor: 'white',
+                    markerColor: 'darkblue',
+                    prefix: 'fa',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_e807fc3cabf547e287f2813506d8eab9.setIcon(icon_6dba05b914684cd896ba34363c440c01);
+            
+    
+            var popup_8abe62e2b2c149a3a014c51204d163a0 = L.popup({maxWidth: '350'
+            
+            });
+
+            
+                var html_cd77d7313d144916b6a506943f754b2f = $(`<div id="html_cd77d7313d144916b6a506943f754b2f" style="width: 100.0%; height: 100.0%;">             <h4>Yokohama Landmark Tower</h4><br/>             <b>Address</b><br/>〒220-0012 神奈川県横浜市西区みなとみらい２丁目２−1<br/>             <a href="https://www.google.com/maps?ll=35.4551339,139.6286753">Google Maps</a>         </div>`)[0];
+                popup_8abe62e2b2c149a3a014c51204d163a0.setContent(html_cd77d7313d144916b6a506943f754b2f);
+            
+
+            marker_e807fc3cabf547e287f2813506d8eab9.bindPopup(popup_8abe62e2b2c149a3a014c51204d163a0)
+            ;
+
+            
+        
+    
+        marker_e807fc3cabf547e287f2813506d8eab9.bindTooltip(
+            `<div>`
+            + `Yokohama Landmark Tower` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+            var feature_group_1bf818a6abce42229298ec6540d78258 = L.featureGroup(
+                ).addTo(map_a3eb0d325dab4f8a851b7fbba0f1346e);
+        
+    
+        var marker_d35622782413486fbca31e6361dc382a = L.marker(
+            [35.4179479, 139.6591213],
+            {
+                icon: new L.Icon.Default()
+                }
+            ).addTo(feature_group_1bf818a6abce42229298ec6540d78258);
+        
+    
+
+                var icon_eaf0c2d93b85493494d8b3c9be895355 = L.AwesomeMarkers.icon({
+                    icon: 'question',
+                    iconColor: 'white',
+                    markerColor: 'darkblue',
+                    prefix: 'fa',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_d35622782413486fbca31e6361dc382a.setIcon(icon_eaf0c2d93b85493494d8b3c9be895355);
+            
+    
+            var popup_e3365220781e4d2f971fb33ae5e91f0e = L.popup({maxWidth: '350'
+            
+            });
+
+            
+                var html_1ee9f1d36e8143eaa7cee2e624136ac0 = $(`<div id="html_1ee9f1d36e8143eaa7cee2e624136ac0" style="width: 100.0%; height: 100.0%;">             <h4>Sankeien Garden</h4><br/>             <b>Address</b><br/>〒231-0824 神奈川県横浜市中区本牧三之谷５８<br/>             <a href="https://www.google.com/maps?ll=35.4179479,139.6591213">Google Maps</a>         </div>`)[0];
+                popup_e3365220781e4d2f971fb33ae5e91f0e.setContent(html_1ee9f1d36e8143eaa7cee2e624136ac0);
+            
+
+            marker_d35622782413486fbca31e6361dc382a.bindPopup(popup_e3365220781e4d2f971fb33ae5e91f0e)
+            ;
+
+            
+        
+    
+        marker_d35622782413486fbca31e6361dc382a.bindTooltip(
+            `<div>`
+            + `Sankeien Garden` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_eeb30c4d02154ba597bdaad859e40dff = L.marker(
+            [35.671740299999996, 139.692756],
+            {
+                icon: new L.Icon.Default()
+                }
+            ).addTo(feature_group_1bf818a6abce42229298ec6540d78258);
+        
+    
+
+                var icon_0af866807993499d8c42ae34d049b4b4 = L.AwesomeMarkers.icon({
+                    icon: 'question',
+                    iconColor: 'white',
+                    markerColor: 'darkred',
+                    prefix: 'fa',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_eeb30c4d02154ba597bdaad859e40dff.setIcon(icon_0af866807993499d8c42ae34d049b4b4);
+            
+    
+            var popup_64cec0b6e0d4420b977d4d8e5ca65e7d = L.popup({maxWidth: '350'
+            
+            });
+
+            
+                var html_f4999db7548d4094a700e8a716c81e36 = $(`<div id="html_f4999db7548d4094a700e8a716c81e36" style="width: 100.0%; height: 100.0%;">             <h4>Yoyogi Park</h4><br/>             <b>Address</b><br/>〒151-0052 東京都渋谷区代々木神園町２−1<br/>             <a href="https://www.google.com/maps?ll=35.671740299999996,139.692756">Google Maps</a>         </div>`)[0];
+                popup_64cec0b6e0d4420b977d4d8e5ca65e7d.setContent(html_f4999db7548d4094a700e8a716c81e36);
+            
+
+            marker_eeb30c4d02154ba597bdaad859e40dff.bindPopup(popup_64cec0b6e0d4420b977d4d8e5ca65e7d)
+            ;
+
+            
+        
+    
+        marker_eeb30c4d02154ba597bdaad859e40dff.bindTooltip(
+            `<div>`
+            + `Yoyogi Park` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+            var layer_control_01ddfcaa19064ce1b4df0df0a4883f19 = {
+                base_layers : { "openstreetmap" : tile_layer_f7626adf29c94542845dfe2810bc0ae4, },
+                overlays : { "Major Offices" : feature_group_f70771927c76478ab89ae4ae31321153,"Minor Offices" : feature_group_1bf818a6abce42229298ec6540d78258, }
+                };
+            L.control.layers(
+                layer_control_01ddfcaa19064ce1b4df0df0a4883f19.base_layers,
+                layer_control_01ddfcaa19064ce1b4df0df0a4883f19.overlays,
+                {position: 'topright',
+                 collapsed: false,
+                 autoZIndex: true
+                }).addTo(map_a3eb0d325dab4f8a851b7fbba0f1346e);
+            
+        
+</script>

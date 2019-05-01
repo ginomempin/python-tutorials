@@ -2,11 +2,19 @@
 
 A collection of Python apps for the workplace.
 
+Contents
+
+* [Environment](#environment)
+* [Setup](#setup)
+* [Usage](#usage)
+    * [blocker](#blocker)
+* [References](#references)
+
 ## Environment
 
 * macOS 10.13.6
-* Homebrew 2.0.1
-* Python 3.7.2, pip 19.0.2, virtualenv 16.0.0
+* Homebrew 2.1.1
+* Python 3.7.3, pip 19.1, virtualenv 16.5.0
 * [requirements.txt](./requirements.txt)
 
 ## Setup
@@ -23,38 +31,58 @@ A collection of Python apps for the workplace.
         * Prevent from accidentally overwriting a system package
 1. Install [virtualenvwrapper](http://virtualenvwrapper.readthedocs.io/en/latest/#)
     * Do `pip install virtualenvwrapper`
-    * Notable [virtualenvwrapper commands](http://virtualenvwrapper.readthedocs.io/en/latest/command_ref.html).
+    * Notable [virtualenvwrapper commands](http://virtualenvwrapper.readthedocs.io/en/latest/command_ref.html):
         * `mkvirtualenv`
         * `lsvirtualenv`
         * `lssitepackages`
         * `workon`
         * `deactivate`
-1. Create the directory for storing Python virtual environments.
-    * Ex. `mkdir -p ~/.virtualenvs`
-1. Add the following to your environment's **.bash_profile** (or its equivalent):
+1. Create the directory for storing Python virtual environments
+    ```bash
+    $ mkdir -p ~/.virtualenvs
 
+    ```
+1. Add the following to your environment's **.bash_profile** (or its equivalent):
     ```bash
     export VIRTUALENVWRAPPER_PYTHON=$(which python3)
     export WORKON_HOME=~/.virtualenvs
     source /usr/local/bin/virtualenvwrapper.sh
+
     ```
+1. Create the virtual environment for this project.
+    ```bash
+    $ mkvirtualenv timetracker
 
-1. Create the virtual environment for this project's development.
-    * Ex. `mkvirtualenv timetracker`
+    ```
 1. Activate the project's virtual environment.
-    * Ex. `workon timetracker`
-    * The environment is activated when you see the `(env-name)` at the start of the prompt.
+    ```bash
+    $ workon timetracker
 
-        ```bash
-        (timetracker) gino@Work$
-        ```
+    ```
+1. Install the rest of the packages from [requirements.txt](./requirements.txt):
+    ```bash
+    $ pip3 install -r requirements.txt
 
-1. Install the rest of the packages from **requirements.txt**.
-    * Do `pip3 install -r requirements.txt`
+    ```
 
 ## Usage
 
-* (TODO)
+### blocker
+
+1. Open [blocker.py](./productivity/blocker/blocker.py)
+1. Set the script parameters:
+    * Set `DEBUG` to `False` to use the actual *hosts* file
+    * Set which websites to block in `BLOCK_LIST`
+    * Set the blocking period in `HOUR_S` and `HOUR_E`
+1. Run
+    * Manually
+        ```
+        $ sudo python3 blocker.py
+
+        ```
+    * As a daemon or a background process
+        * [Running Python in background on OS X](https://stackoverflow.com/q/9522324/2745495)
+        * [How to run a Python script in the background even after I logout SSH?](https://stackoverflow.com/q/2975624/2745495)
 
 ## References
 

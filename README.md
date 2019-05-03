@@ -25,6 +25,7 @@ Contents
     $ pip3 install -r requirements.txt
 
     ```
+1. Install [DB Browser for SQLite](https://sqlitebrowser.org/) (for debugging *.db* files)
 
 ## Usage
 

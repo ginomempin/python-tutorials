@@ -1,4 +1,6 @@
 
+from pathlib import Path
+
 from tkinter import Button, Entry, Listbox, Scrollbar
 from tkinter import S, W
 from tkinter import END
@@ -22,7 +24,10 @@ LIST_ITEM_DELIM = ", "
 #####################################################
 
 
-db = EmployeesDB()
+app_dir = Path(__file__).absolute().parent
+print(f"APP path is set to {app_dir.as_posix()}")
+
+db = EmployeesDB(app_dir)
 db.connect()
 db.create_table()
 db.insert_employee("ADMIN", "ADMIN")

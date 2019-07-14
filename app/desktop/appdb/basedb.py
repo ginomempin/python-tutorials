@@ -14,9 +14,8 @@ class DB():
     directory under the same directory where the main
     app was run.
     """
-
-    def __init__(self, db_name):
-        self._db_dir = Path("./data").absolute()
+    def __init__(self, db_path, db_name):
+        self._db_dir = Path(db_path).absolute().joinpath("data")
         if not self._db_dir.exists():
             Path.mkdir(self._db_dir)
         self._db = self._db_dir.joinpath(db_name)

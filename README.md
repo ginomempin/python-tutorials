@@ -21,11 +21,24 @@ Contents
 
 1. [Install Python 3, virtualenv, and virtualenvwrapper](https://github.com/ginomempin/how-to#python)
 1. Install the project dependencies from [requirements.txt](./requirements.txt):
-    ```bash
+    ```shell
     $ pip3 install -r requirements.txt
 
     ```
 1. Install [DB Browser for SQLite](https://sqlitebrowser.org/) (for debugging *.db* files)
+1. Build the standalone executable:
+    ```shell
+    $ cd TimeTracker
+    $ pyinstaller --clean \
+                  --onefile \
+                  --noconfirm \
+                  --distpath=app/desktop/dist \
+                  --workpath=app/desktop/dist/build \
+                  --specpath=app/desktop \
+                  --name=app \
+                  app/desktop/app.py
+
+    ```
 
 ## Usage
 

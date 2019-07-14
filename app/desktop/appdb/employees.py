@@ -7,9 +7,9 @@ from .basedb import DB
 class EmployeesDB(DB):
     """SQLite-backed Database"""
 
-    def __init__(self):
+    def __init__(self, db_path: str):
         """Create a DB instance"""
-        super().__init__("employees.db")
+        super().__init__(db_path, "employees.db")
         self._conn = None
         self._cursor = None
 

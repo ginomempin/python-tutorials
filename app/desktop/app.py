@@ -94,6 +94,11 @@ search_results_scroll.config(
 
 
 def on_select_item(event):
+    selection = search_results.curselection()
+    if len(selection) == 0:
+        # listbox is empty, ignore click
+        return
+
     item_idx = search_results.curselection()[0]
     item = search_results.get(item_idx)
     _, name, _ = item.split(LIST_ITEM_DELIM)

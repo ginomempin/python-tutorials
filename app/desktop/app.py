@@ -1,6 +1,8 @@
 
-from tkinter import Button, Entry, Text
-from tkinter import N, S, E, W, END
+from tkinter import Button, Entry, Listbox, Scrollbar
+from tkinter import S, W
+from tkinter import END
+from tkinter import VERTICAL
 from tkinter import StringVar
 from tkinter import Tk
 
@@ -46,7 +48,7 @@ search_input = Entry(
     textvariable=search_input_value)
 search_input.grid(
     row=0,
-    column=0, columnspan=3,
+    column=0, columnspan=5,
     sticky=W)
 
 
@@ -55,15 +57,29 @@ search_input.grid(
 #####################################################
 
 
-search_results = Text(
+search_results_scroll = Scrollbar(
+    master=main_window,
+    orient=VERTICAL
+)
+search_results_scroll.grid(
+    row=1, rowspan=5,
+    column=5,
+)
+
+search_results = Listbox(
     master=main_window,
     background="green",
-    height=10,
-    width=40)
+    yscrollcommand=search_results_scroll.set
+)
 search_results.grid(
-    row=1,
-    column=0, columnspan=4,
-    sticky=S)
+    row=1, rowspan=5,
+    column=0, columnspan=5,
+    sticky=S
+)
+
+search_results_scroll.config(
+    command=search_results.yview
+)
 
 
 #####################################################
@@ -77,10 +93,10 @@ def search_for_employee():
     if len(employee_results) > 0:
         # Get only the 1st result
         name, eid, role = employee_results[0]
-        display = f"Found!\n  Name:{name}\n  ID:{eid}\n  Role:{role}"
+        display = f"{name}, {eid}, {role}"
     else:
         display = f"No match for '{employee_query}''"
-    search_results.delete(1.0, END)
+    search_results.delete(0, END)
     search_results.insert(END, display)
 
 search_btn = Button(
@@ -89,7 +105,7 @@ search_btn = Button(
     command=search_for_employee)
 search_btn.grid(
     row=0,
-    column=3, columnspan=1,
+    column=5, columnspan=1,
     sticky=W)
 
 

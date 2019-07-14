@@ -30,7 +30,7 @@ class EmployeesDB(DB):
         return self._cursor.fetchall()
 
     def fetch(self, name: str) -> list:
-        self._cursor.execute("SELECT * FROM employees WHERE name=?", (name,))
+        self._cursor.execute("SELECT * FROM employees WHERE name LIKE ?", ('%' + name + '%',))
         return self._cursor.fetchall()
 
     def insert_employee(self, name: str, position: str):

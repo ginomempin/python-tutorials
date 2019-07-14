@@ -10,6 +10,14 @@ from appdb import EmployeesDB
 
 
 #####################################################
+#                  CONSTANTS                        #
+#####################################################
+
+
+LIST_ITEM_DELIM = ", "
+
+
+#####################################################
 #                 APP DATABASE                      #
 #####################################################
 
@@ -17,14 +25,17 @@ from appdb import EmployeesDB
 db = EmployeesDB()
 db.connect()
 db.create_table()
-db.insert_employee("Bob", "DEV")
+db.insert_employee("ADMIN", "ADMIN")
+db.insert_employee("Lyn", "DEV")
+db.insert_employee("Lynda", "DEV")
 db.insert_employee("Charlie", "DEV")
 db.insert_employee("John", "QA")
+db.insert_employee("Jaclyn", "QA")
 print(db.fetch_all())
-db.delete_employee(2)
+db.delete_employee(5)
 print(db.fetch_all())
-db.update_employee_name(1, "Bobby")
-db.update_employee_position(3, "QA Lead")
+db.update_employee_name(2, "Lynnie")
+db.update_employee_position(4, "QA Lead")
 print(db.fetch_all())
 
 
@@ -82,22 +93,33 @@ search_results_scroll.config(
 )
 
 
+def on_select_item(event):
+    item_idx = search_results.curselection()[0]
+    item = search_results.get(item_idx)
+    _, name, _ = item.split(LIST_ITEM_DELIM)
+    search_input.delete(0, END)
+    search_input.insert(END, name)
+
+
+search_results.bind("<<ListboxSelect>>", on_select_item)
+
+
 #####################################################
 #                 SEARCH BUTTON                     #
 #####################################################
 
 
 def search_for_employee():
-    employee_query = search_input_value.get()
-    employee_results = db.fetch(employee_query)
-    if len(employee_results) > 0:
-        # Get only the 1st result
-        eid, name, role = employee_results[0]
-        display = f"{eid}, {name}, {role}"
-    else:
-        display = f"No match for '{employee_query}''"
     search_results.delete(0, END)
-    search_results.insert(END, display)
+    employee_query = search_input_value.get()
+    fetch_results = db.fetch(employee_query)
+    if len(fetch_results) == 0:
+        search_results.insert(END, f"No match for '{employee_query}''")
+    else:
+        for employee in fetch_results:
+            eid, name, role = employee
+            list_item = LIST_ITEM_DELIM.join((str(eid), name, role))
+            search_results.insert(END, list_item)
 
 search_btn = Button(
     master=main_window,

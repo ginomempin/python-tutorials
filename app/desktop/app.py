@@ -17,14 +17,14 @@ from appdb import EmployeesDB
 db = EmployeesDB()
 db.connect()
 db.create_table()
-db.insert_employee("Bob", "001", "DEV")
-db.insert_employee("Charlie", "002", "DEV")
-db.insert_employee("John", "003", "QA")
+db.insert_employee(1, "Bob", "DEV")
+db.insert_employee(2, "Charlie", "DEV")
+db.insert_employee(3, "John", "QA")
 print(db.fetch_all())
-db.delete_employee("002")
+db.delete_employee(2)
 print(db.fetch_all())
-db.update_employee_name("001", "Bobby")
-db.update_employee_position("003", "QA Lead")
+db.update_employee_name(1, "Bobby")
+db.update_employee_position(3, "QA Lead")
 print(db.fetch_all())
 
 
@@ -92,8 +92,8 @@ def search_for_employee():
     employee_results = db.fetch(employee_query)
     if len(employee_results) > 0:
         # Get only the 1st result
-        name, eid, role = employee_results[0]
-        display = f"{name}, {eid}, {role}"
+        eid, name, role = employee_results[0]
+        display = f"{eid}, {name}, {role}"
     else:
         display = f"No match for '{employee_query}''"
     search_results.delete(0, END)

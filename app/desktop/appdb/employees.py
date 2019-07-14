@@ -18,7 +18,11 @@ class EmployeesDB(DB):
         self._cursor = self._conn.cursor()
 
     def create_table(self):
-        self._cursor.execute("CREATE TABLE IF NOT EXISTS employees (name TEXT, employee_id TEXT, position TEXT)")
+        self._cursor.execute("CREATE TABLE IF NOT EXISTS employees (\
+            eid INTEGER PRIMARY KEY, \
+            name TEXT, \
+            position TEXT \
+        )")
         self._conn.commit()
 
     def fetch_all(self) -> list:
@@ -29,20 +33,20 @@ class EmployeesDB(DB):
         self._cursor.execute("SELECT * FROM employees WHERE name=?", (name,))
         return self._cursor.fetchall()
 
-    def insert_employee(self, name: str, employee_id: str, position: str):
-        self._cursor.execute("INSERT INTO employees VALUES (?,?,?)", (name, employee_id, position))
+    def insert_employee(self, eid: int, name: str, position: str):
+        self._cursor.execute("INSERT INTO employees VALUES (?,?,?)", (eid, name, position))
         self._conn.commit()
 
-    def delete_employee(self, employee_id: str):
-        self._cursor.execute("DELETE FROM employees WHERE employee_id=?", (employee_id,))
+    def delete_employee(self, eid: int):
+        self._cursor.execute("DELETE FROM employees WHERE eid=?", (eid,))
         self._conn.commit()
 
-    def update_employee_name(self, employee_id: str, name: str):
-        self._cursor.execute("UPDATE employees SET name=? WHERE employee_id=?", (name, employee_id))
+    def update_employee_name(self, eid: int, name: str):
+        self._cursor.execute("UPDATE employees SET name=? WHERE eid=?", (name, eid))
         self._conn.commit()
 
-    def update_employee_position(self, employee_id: str, position: str):
-        self._cursor.execute("UPDATE employees SET position=? WHERE employee_id=?", (position, employee_id))
+    def update_employee_position(self, eid: int, position: str):
+        self._cursor.execute("UPDATE employees SET position=? WHERE eid=?", (position, eid))
         self._conn.commit()
 
     def disconnect(self):

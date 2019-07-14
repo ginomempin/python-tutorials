@@ -31,7 +31,7 @@ Contents
 
 ### blocker
 
-1. Open [blocker.py](./productivity/blocker/blocker.py)
+1. Open [blocker.py](./lib/productivity/blocker/blocker.py)
 1. Set the script parameters:
     * Set `DEBUG` to `False` to use the actual *hosts* file
     * Set which websites to block in `BLOCK_LIST`

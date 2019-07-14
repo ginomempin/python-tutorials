@@ -25,6 +25,10 @@ class EmployeesDB(DB):
         self._cursor.execute("SELECT * FROM employees")
         return self._cursor.fetchall()
 
+    def fetch(self, name: str) -> list:
+        self._cursor.execute("SELECT * FROM employees WHERE name=?", (name,))
+        return self._cursor.fetchall()
+
     def insert_employee(self, name: str, employee_id: str, position: str):
         self._cursor.execute("INSERT INTO employees VALUES (?,?,?)", (name, employee_id, position))
         self._conn.commit()

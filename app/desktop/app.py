@@ -24,7 +24,6 @@ print(db.fetch_all())
 db.update_employee_name("001", "Bobby")
 db.update_employee_position("003", "QA Lead")
 print(db.fetch_all())
-db.disconnect()
 
 
 #####################################################
@@ -74,9 +73,15 @@ search_results.grid(
 
 def search_for_employee():
     employee_query = search_input_value.get()
-    employee_results = employee_query.title()
+    employee_results = db.fetch(employee_query)
+    if len(employee_results) > 0:
+        # Get only the 1st result
+        name, eid, role = employee_results[0]
+        display = f"Found!\n  Name:{name}\n  ID:{eid}\n  Role:{role}"
+    else:
+        display = f"No match for '{employee_query}''"
     search_results.delete(1.0, END)
-    search_results.insert(END, "Found '{}'!".format(employee_results))
+    search_results.insert(END, display)
 
 search_btn = Button(
     master=main_window,
@@ -92,4 +97,10 @@ search_btn.grid(
 #                    MAIN LOOP                      #
 #####################################################
 
+def on_close():
+    print("Closing..")
+    db.disconnect()
+    main_window.destroy()
+
+main_window.protocol("WM_DELETE_WINDOW", on_close)
 main_window.mainloop()

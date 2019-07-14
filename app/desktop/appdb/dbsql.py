@@ -1,7 +1,6 @@
 
 import sqlite3
 
-
 from .basedb import DB
 
 
@@ -10,11 +9,12 @@ class EmployeesDB(DB):
 
     def __init__(self):
         """Create a DB instance"""
+        super().__init__("employees.db")
         self._conn = None
         self._cursor = None
 
     def connect(self):
-        self._conn = sqlite3.connect("employees.db")
+        self._conn = sqlite3.connect(self._db)
         self._cursor = self._conn.cursor()
 
     def create_table(self):

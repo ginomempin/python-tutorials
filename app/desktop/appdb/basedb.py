@@ -10,10 +10,14 @@ class DB():
     should be defined here as abstract methods, that
     must be implemented by each data-specific DB impl.
 
-    By default, all *.db files are stored in the same
-    directory as this file.
+    By default, all *.db files are stored in a data
+    directory under the same directory where the main
+    app was run.
     """
 
     def __init__(self, db_name):
-        self._db_dir = Path(__file__).absolute().parent
+        self._db_dir = Path("./data").absolute()
+        if not self._db_dir.exists():
+            Path.mkdir(self._db_dir)
         self._db = self._db_dir.joinpath(db_name)
+        print(f"DB path is set to '{self._db.as_posix()}'")

@@ -9,7 +9,7 @@
 .vscode
 
 # DATA
-*.db
+app/desktop/data
 
 ######################################################################
 # PYTHON-SPECIFIC

@@ -1,3 +1,8 @@
+"""
+This shows how to access pixels of an image and how to stack multiple images.
+
+This uses the small_4x6.png file as the sample data.
+"""
 
 import cv2
 import numpy

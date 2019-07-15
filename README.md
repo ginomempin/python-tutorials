@@ -13,8 +13,9 @@ Contents
 ## Environment
 
 * macOS 10.13.6
-* Homebrew 2.1.1
+* Homebrew 2.1.7
 * Python 3.7.3, pip 19.1, virtualenv 16.5.0
+* OpenCV 4.1.0
 * [requirements.txt](./requirements.txt)
 
 ## Setup

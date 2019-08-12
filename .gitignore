@@ -10,7 +10,9 @@
 
 # DATA
 app/desktop/data
-*_resized*
+lib/**/*_resized*
+lib/**/sample_*.html
+lib/security/timestamps.*
 
 ######################################################################
 # PYTHON-SPECIFIC

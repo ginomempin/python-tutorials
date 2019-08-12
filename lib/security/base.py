@@ -10,6 +10,9 @@ from collections import namedtuple
 from datetime import datetime
 import time
 
+from bokeh.plotting import figure
+from bokeh.plotting import output_file
+from bokeh.plotting import show
 import cv2
 import pandas
 
@@ -127,6 +130,21 @@ for idx in range(0, len(objects_timestamps), 2):
     }, ignore_index=True)
 print(objects_df)
 objects_df.to_csv("timestamps.csv")
+
+graph = figure(
+    plot_width=1000, plot_height=300,
+    title="Object Detection",
+    x_axis_type="datetime"
+)
+graph.quad(
+    left=objects_df["Enter"],
+    right=objects_df["Exit"],
+    bottom=-0.5,
+    top=0.5,
+    color="red"
+)
+output_file("timestamps.html")
+show(graph)
 
 cv2.destroyWindow("video")
 video.release()

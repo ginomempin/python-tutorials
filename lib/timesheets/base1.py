@@ -1,3 +1,7 @@
+"""
+This shows how to use pandas to read Excel(.xlsx) files
+and parse the data as a DataFrame.
+"""
 
 import pandas
 

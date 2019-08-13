@@ -12,6 +12,7 @@
 app/desktop/data
 lib/**/*_resized*
 lib/**/sample_*.html
+lib/calendar/properties.csv
 lib/security/timestamps.*
 
 ######################################################################

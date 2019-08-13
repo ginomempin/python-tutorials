@@ -1,4 +1,9 @@
-"""Accesses member information."""
+"""
+This shows how search for keys from a JSON file
+using difflib.get_close_matches. It allows for
+suggesting possible matches in case the exact
+key was not found.
+"""
 
 import json
 from difflib import get_close_matches

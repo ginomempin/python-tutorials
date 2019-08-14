@@ -21,13 +21,47 @@ Contents
 ## Setup
 
 1. [Install Python 3, virtualenv, and virtualenvwrapper](https://github.com/ginomempin/how-to#python)
-1. Install the project dependencies from [requirements.txt](./requirements.txt):
+1. Setup the project dependencies from [requirements.txt](./requirements.txt):
     ```shell
     $ pip3 install -r requirements.txt
 
     ```
-1. Install [DB Browser for SQLite](https://sqlitebrowser.org/) (for debugging *.db* files)
-1. Build the standalone executable:
+1. Setup the DB backend:
+    * postgresql
+        1. Install with HomeBrew:
+            ```shell
+            $ brew install postgresql
+            $ pg_ctl -D /usr/local/var/postgres/ start && brew services start postgresql
+
+            ```
+        1. Create the user specific for this project's database
+            ```shell
+            $ createuser <user_name> --login --createdb
+
+            ```
+        1. Install [pgAdmin](https://www.pgadmin.org/download/pgadmin-4-macos/)
+        1. Create the database (make sure to link the just-created user)
+        1. Run the [setup script](./app/website/setup_db.py) to create the tables
+    * sqlite3
+        1. Install with HomeBrew:
+            ```shell
+            $ brew install sqlite
+
+            ```
+        1. Install [DB Browser for SQLite](https://sqlitebrowser.org/) (for debugging *.db* files)
+1. Setup the email client
+    * Go to *lib/emailer*
+    * Create a *client.json* file with the following contents:
+        ```json
+        {
+            "addr": "your@email.address",
+            "pass": "password"
+        }
+
+        ```
+    * Make sure to **NEVER** commit this file to the repository.
+    * If using GMail, make sure to enable [Less secure app access](https://support.google.com/accounts/answer/6010255?hl=en&authuser=1)
+1. Build the standalone executable
     ```shell
     $ cd TimeTracker
     $ pyinstaller --clean \
@@ -42,6 +76,10 @@ Contents
     ```
 
 ## Usage
+
+### website
+
+TODO
 
 ### blocker
 

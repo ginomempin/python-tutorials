@@ -4,6 +4,7 @@ import sqlite3
 from .basedb import DB
 
 
+# TODO: Convert DB implementation to PostgreSQL
 class EmployeesDB(DB):
     """SQLite-backed Database"""
 

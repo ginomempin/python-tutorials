@@ -2,6 +2,7 @@
 from pathlib import Path
 
 
+# TODO: Convert DB implementation to PostgreSQL
 class DB():
     """
     Base class for all database implementations

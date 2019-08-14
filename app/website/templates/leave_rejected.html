@@ -1,0 +1,7 @@
+{% extends "_base_.html" %}
+
+{% block content %}
+    <p class="leave-request-message">
+        User <b>{{ email | safe }}</b> already applied for <b>{{ days }}</b> days.
+    </p>
+{% endblock %}

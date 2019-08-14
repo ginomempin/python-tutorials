@@ -8,7 +8,11 @@
 # IDE
 .vscode
 
-# DATA
+# Configuration Files
+app/website/appdb.json
+lib/emailer/client.json
+
+# Local Data and Test Files
 app/desktop/data
 lib/**/*_resized*
 lib/**/sample_*.html

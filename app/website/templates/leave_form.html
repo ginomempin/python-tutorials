@@ -1,0 +1,23 @@
+{% extends "_base_.html" %}
+
+{% block content %}
+    <div id="leave_form">
+        <h1>Leave Application Form</h1>
+
+        <div class="email"> {{ text | safe }} </div>
+        <form action="{{url_for('leave_form')}}" method="POST">
+            <input  title="Your email address"
+                    placeholder="Enter your email address"
+                    type="email"
+                    name="user_email"
+                    required>
+            <br>
+            <input  title="Your leave application"
+                    placeholder="Enter the number of days"
+                    name="num_days"
+                    required>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+{% endblock %}

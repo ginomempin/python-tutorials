@@ -18,6 +18,7 @@ lib/**/*_resized*
 lib/**/sample_*.html
 lib/calendar/properties.csv
 lib/security/timestamps.*
+lib/timesheets/uploaded*
 
 ######################################################################
 # PYTHON-SPECIFIC

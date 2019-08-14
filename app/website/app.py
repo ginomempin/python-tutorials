@@ -10,10 +10,13 @@ from flask import Flask
 from flask import redirect
 from flask import render_template
 from flask import request
+from flask import send_file
 from flask import url_for
 from flask_sqlalchemy import SQLAlchemy
 
 from emailer.client import send_email
+from timesheets.data import fetch_timesheet
+from timesheets.data import store_timesheet         # pylint: disable=import-error
 from timesheets.data import prepare_timesheet_plot  # pylint: disable=import-error
 
 
@@ -134,18 +137,38 @@ def leave_form():
         return render_template("leave_form.html")
 
 
-@app.route('/timesheet')
+@app.route('/timesheet', methods=['GET', 'POST'])
 def timesheet():
-    plot = prepare_timesheet_plot()
-    html, js, cdn_css, cdn_js = plot
-    return render_template(
-        "timesheet.html",
-        html=html,
-        js=js,
-        cdn_css=cdn_css,
-        cdn_js=cdn_js
-    )
+    if request.method == 'GET':
+        return render_template(
+            "timesheet.html",
+            has_timesheet=False,
+        )
+    else:
+        timesheet_file = request.files['timesheet']
+        timesheet_path = store_timesheet(timesheet_file)
+        logging.info("SAVED {}".format(timesheet_path.as_posix()))
+        plot = prepare_timesheet_plot(timesheet_path)
+        html, js, cdn_css, cdn_js = plot
+        return render_template(
+            "timesheet.html",
+            has_timesheet=True,
+            html=html,
+            js=js,
+            cdn_css=cdn_css,
+            cdn_js=cdn_js
+        )
 
+
+# TODO: Differentiate downloadables
+@app.route('/download', methods=['GET'])
+def download():
+    timesheet_path = fetch_timesheet()
+    logging.info("FETCH {}".format(timesheet_path))
+    return send_file(
+        timesheet_path,
+        as_attachment=True
+    )
 
 # ------------------------------------------------------------------------------
 # Entrypoint

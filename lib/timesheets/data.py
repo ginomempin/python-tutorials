@@ -1,5 +1,6 @@
 
 from datetime import datetime
+from pathlib import Path
 
 from bokeh.embed import components
 from bokeh.plotting import figure
@@ -7,11 +8,31 @@ from bokeh.plotting import output_file
 from bokeh.plotting import show
 from bokeh.resources import CDN
 from pandas_datareader.data import DataReader
+from werkzeug import secure_filename
+from werkzeug.datastructures import FileStorage
 
 
-def prepare_timesheet_plot():
-    # TODO: Replace sample stock market data with
-    #       actual timesheet data.
+TIMESHEET_DIR = Path(__file__).absolute().parent
+
+
+def store_timesheet(file: FileStorage):
+    timesheet_name = "uploaded" + secure_filename(file.filename)
+    timesheet_path = TIMESHEET_DIR.joinpath(timesheet_name)
+    file.save(timesheet_path.as_posix())
+    return timesheet_path
+
+
+def fetch_timesheet():
+    # TODO: Allow the user to specify which to download.
+    #       For now, just get the first uploaded* file.
+    timesheet_list = TIMESHEET_DIR.iterdir()
+    for t in timesheet_list:
+        if t.name.startswith("uploaded"):
+            return t.as_posix()
+
+def prepare_timesheet_plot(path: Path):
+    # TODO: Replace sample stock market data with the actual
+    #       timesheet data, passed as a path to the file.
     df = DataReader(
         name="AAPL",
         data_source="yahoo",
@@ -38,7 +59,7 @@ def prepare_timesheet_plot():
         plot_height=300,
         x_axis_type="datetime",
     )
-    plot.title.text = "Stock Market Data"
+    plot.title.text = "Timesheet Data"
     plot.segment(
         df.index,           # x-coord of starting point
         df["Low"],          # y-coord of starting point

@@ -1,15 +1,34 @@
 {% extends "_base_.html" %}
 
 {% block head %}
+    {% if has_timesheet %}
     <link   rel="stylesheet"
             type="text/css"
             href="{{ cdn_css[0] | safe }}">
     <script src="{{ cdn_js[0] | safe }}"
             type="text/javascript">
     </script>
+    {% endif %}
 {% endblock %}
 
 {% block content %}
-    {{ js | safe }}
-    {{ html | safe }}
+    {% if has_timesheet %}
+    <div>
+        {{ js | safe }}
+        {{ html | safe }}
+    </div>
+    <div>
+        <a href="{{url_for('download')}}" target="blank">
+            <button>Download</button>
+        </a>
+    </div>
+    {% else %}
+    <div>
+        <form action="{{url_for('timesheet')}}" method="POST" enctype="multipart/form-data">
+            <input  type="file"
+                    name="timesheet">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    {% endif %}
 {% endblock %}

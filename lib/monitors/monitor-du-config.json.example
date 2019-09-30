@@ -1,0 +1,17 @@
+{
+    "server" : {
+        "name" : "smtp.mail.server.co.jp",
+        "port" : 888
+    },
+    "client" : {
+        "user" : "server@somewhere.com",
+        "pass" : "12345678"
+    },
+    "subscriber" : "someone@project.com",
+    "directories" : [
+        "/home/data"
+    ],
+    "limits" : {
+        "warn_size_gb" : "750G"
+    }
+}

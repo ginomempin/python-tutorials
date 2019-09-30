@@ -11,6 +11,7 @@
 # Configuration Files
 app/website/appdb.json
 lib/emailer/client.json
+lib/monitors/*.json
 
 # Local Data and Test Files
 app/desktop/data

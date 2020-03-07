@@ -1,6 +1,6 @@
 # Python Tutorials
 
-A collection of Python apps for the workplace.
+A collection of Python apps from various tutorials.
 
 Contents
 

@@ -63,7 +63,7 @@ Contents
     * If using GMail, make sure to enable [Less secure app access](https://support.google.com/accounts/answer/6010255?hl=en&authuser=1)
 1. Build the standalone executable
     ```shell
-    $ cd TimeTracker
+    $ cd PythonTutorials
     $ pyinstaller --clean \
                   --onefile \
                   --noconfirm \

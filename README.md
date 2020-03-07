@@ -1,4 +1,4 @@
-# TimeTracker
+# Python Tutorials
 
 A collection of Python apps for the workplace.
 
@@ -20,7 +20,7 @@ Contents
 
 ## Setup
 
-1. [Install Python 3, virtualenv, and virtualenvwrapper](https://github.com/ginomempin/how-to#python)
+1. [Setup Python 3 and a virtual environment](https://github.com/ginomempin/how-to#python)
 1. Setup the project dependencies from [requirements.txt](./requirements.txt):
     ```shell
     $ pip3 install -r requirements.txt
